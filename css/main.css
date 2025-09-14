@@ -261,6 +261,16 @@ a:hover {
   text-decoration: none;
 }
 
+@media (max-width: 768px) {
+  .header__cta {
+    padding: var(--space-xs) var(--space-sm);
+    font-size: var(--font-size-sm);
+    line-height: 1.2;
+    text-align: center;
+    white-space: pre-line;
+  }
+}
+
 .header__menu-toggle {
   display: none;
   background: none;
