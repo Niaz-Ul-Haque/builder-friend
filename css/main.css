@@ -2,14 +2,14 @@
 
 /* CSS Custom Properties */
 :root {
-  /* Colors */
-  --bg: #111111;
-  --ink: #ffffff;
-  --muted: #aaaaaa;
+  /* Colors - Always light mode */
+  --bg: #ffffff;
+  --ink: #111111;
+  --muted: #555555;
   --accent: #C1121F;
   --accent-strong: #910D17;
-  --border: #333333;
-  --surface: #1a1a1a;
+  --border: #e5e5e5;
+  --surface: #f8f8f8;
   
   /* Typography */
   --font-family: -apple-system, 'Segoe UI', Roboto, Inter, Arial, sans-serif;
@@ -36,17 +36,6 @@
   --border-radius: 8px;
   --shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
   --shadow-lg: 0 4px 16px rgba(0, 0, 0, 0.15);
-}
-
-/* Light mode support */
-@media (prefers-color-scheme: dark) {
-  :root {
-    --bg: #ffffff;
-    --ink: #111111;
-    --muted: #555555;
-    --surface: #f8f8f8;
-    --border: #e5e5e5;
-  }
 }
 
 /* Reset and base styles */
