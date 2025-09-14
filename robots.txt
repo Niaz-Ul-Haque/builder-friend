@@ -1,0 +1,19 @@
+# Plan6ix Buildtrade Inc - robots.txt
+# Professional renovation and construction services in Toronto, ON
+
+User-agent: *
+Allow: /
+
+# Disallow any admin or private directories (add as needed)
+# Disallow: /admin/
+# Disallow: /private/
+
+# Disallow search results and form processing pages
+Disallow: /search
+Disallow: /*?*
+
+# Sitemap location
+Sitemap: https://plan6ix.ca/sitemap.xml
+
+# Crawl-delay for respectful crawling
+Crawl-delay: 1
