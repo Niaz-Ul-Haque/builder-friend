@@ -192,6 +192,13 @@ a:hover {
   text-decoration: none;
 }
 
+@media (max-width: 768px) {
+  .header__logo {
+    white-space: pre-line;
+    line-height: 1.1;
+  }
+}
+
 .header__nav {
   display: flex;
   align-items: center;
