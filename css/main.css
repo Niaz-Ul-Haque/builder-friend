@@ -281,14 +281,17 @@ a:hover {
 .hero {
   background: linear-gradient(135deg, var(--surface) 0%, var(--bg) 100%);
   padding: var(--space-3xl) 0;
+  text-align: center;
 }
 
+/* Hero with mascot (index page only) */
 .hero__container {
   display: grid;
   grid-template-columns: 1fr 2fr;
   gap: var(--space-xl);
   align-items: center;
   min-height: 500px;
+  text-align: left;
 }
 
 .hero__mascot {
@@ -313,6 +316,11 @@ a:hover {
   text-align: left;
 }
 
+/* Center hero title on pages without mascot */
+.hero > .container > .hero__title {
+  text-align: center;
+}
+
 .hero__subtitle {
   font-size: var(--font-size-xl);
   color: var(--muted);
@@ -321,6 +329,14 @@ a:hover {
   margin-left: 0;
   margin-right: 0;
   text-align: left;
+}
+
+/* Center hero subtitle on pages without mascot */
+.hero > .container > .hero__subtitle {
+  text-align: center;
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .hero__cta {
@@ -560,7 +576,7 @@ a:hover {
 }
 
 .faq__answer {
-  padding: 0 var(--space-md) var(--space-md) var(--space-md);
+  padding: 20px var(--space-md) var(--space-md) var(--space-md);
   color: var(--muted);
   display: none;
 }
