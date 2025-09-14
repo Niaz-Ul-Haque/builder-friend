@@ -628,6 +628,9 @@ a:hover {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
   gap: var(--space-md);
+  /* Ensure smooth scrolling on mobile */
+  -webkit-overflow-scrolling: touch;
+  touch-action: pan-y pinch-zoom;
 }
 
 .gallery__item {
@@ -638,6 +641,8 @@ a:hover {
   cursor: pointer;
   transition: transform 0.2s;
   border: 2px solid transparent;
+  /* Improve mobile touch handling */
+  touch-action: manipulation;
 }
 
 .gallery__item:hover {
@@ -657,6 +662,13 @@ a:hover {
   object-fit: cover;
   cursor: pointer;
   transition: transform 0.2s, opacity 0.2s;
+  /* Improve mobile touch handling - allow scrolling but handle taps carefully */
+  touch-action: manipulation;
+  /* Disable text selection which can interfere with touch events */
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
 }
 
 .gallery__image:hover,
@@ -990,6 +1002,40 @@ a:hover {
   .lightbox__caption {
     font-size: var(--font-size-base);
     max-width: 90%;
+  }
+  
+  /* Mobile-specific gallery improvements */
+  .gallery {
+    /* Ensure gallery container allows normal scrolling */
+    touch-action: auto;
+  }
+  
+  .gallery__item {
+    /* Reduce transform effects on mobile to prevent scrolling interference */
+    transition: none;
+  }
+  
+  .gallery__item:hover {
+    /* Disable hover effects on mobile since they don't work well with touch */
+    transform: none;
+  }
+  
+  .gallery__image {
+    /* Improve touch responsiveness on mobile */
+    touch-action: manipulation;
+  }
+  
+  .gallery__image:hover,
+  .gallery__image:focus {
+    /* Disable hover/focus transforms on mobile to prevent scroll interference */
+    transform: none;
+    opacity: 1;
+  }
+  
+  /* Improve touch targets for mobile */
+  .gallery__image {
+    /* Ensure minimum touch target size */
+    min-height: 48px;
   }
 }
 

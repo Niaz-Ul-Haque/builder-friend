@@ -273,8 +273,69 @@
         img.style.zIndex = '1';
         img.style.pointerEvents = 'auto';
         
-        console.log(`Adding click listener to uninitialized image ${index + 1}:`, img.src);        // Add click event listener with enhanced error handling
+        console.log(`Adding click listener to uninitialized image ${index + 1}:`, img.src);
+        
+        // Touch tracking variables for this specific image
+        let touchStartX = 0;
+        let touchStartY = 0;
+        let touchStartTime = 0;
+        let touchMoved = false;
+        let scrollingDetected = false;
+        
+        // Touch start handler
+        img.addEventListener('touchstart', function(e) {
+          // Record initial touch position and time
+          const touch = e.touches[0];
+          touchStartX = touch.clientX;
+          touchStartY = touch.clientY;
+          touchStartTime = Date.now();
+          touchMoved = false;
+          scrollingDetected = false;
+          
+          console.log('Touch start on image:', img.src, 'at', touchStartX, touchStartY);
+        }, { passive: true });
+        
+        // Touch move handler
+        img.addEventListener('touchmove', function(e) {
+          const touch = e.touches[0];
+          const deltaX = Math.abs(touch.clientX - touchStartX);
+          const deltaY = Math.abs(touch.clientY - touchStartY);
+          
+          // If movement exceeds threshold, consider it scrolling
+          const movementThreshold = 10; // pixels
+          if (deltaX > movementThreshold || deltaY > movementThreshold) {
+            touchMoved = true;
+            // If predominantly vertical movement, it's likely scrolling
+            if (deltaY > deltaX && deltaY > 15) {
+              scrollingDetected = true;
+            }
+          }
+          
+          console.log('Touch move detected:', deltaX, deltaY, 'scrolling:', scrollingDetected);
+        }, { passive: true });
+        
+        // Enhanced image click handler
         function handleImageClick(e) {
+          // For touch events, check if this was scrolling
+          if (e.type === 'touchend') {
+            const touchDuration = Date.now() - touchStartTime;
+            
+            // Ignore if:
+            // 1. Touch moved significantly (scrolling)
+            // 2. Scrolling was detected
+            // 3. Touch was too long (likely a long press or scroll)
+            if (touchMoved || scrollingDetected || touchDuration > 500) {
+              console.log('Touch ignored - movement detected or too long:', {
+                moved: touchMoved,
+                scrolling: scrollingDetected,
+                duration: touchDuration
+              });
+              return;
+            }
+            
+            console.log('Valid touch tap detected:', touchDuration + 'ms');
+          }
+          
           e.preventDefault();
           e.stopPropagation();
           
@@ -308,11 +369,11 @@
         // Add click event listener (primary for desktop)
         img.addEventListener('click', handleImageClick);
         
-        // Add touchend event listener (for mobile devices)
+        // Add touchend event listener (for mobile devices) with improved detection
         img.addEventListener('touchend', function(e) {
           // Prevent the click event from firing after touchend on mobile
           e.preventDefault();
-          console.log('Touch event detected, handling via touchend');
+          console.log('Touch end event detected, processing...');
           handleImageClick(e);
         });
         
