@@ -190,6 +190,14 @@ a:hover {
   font-weight: 700;
   color: var(--ink);
   text-decoration: none;
+  display: flex;
+  align-items: center;
+}
+
+.header__logo img {
+  height: 50px;
+  width: auto;
+  display: block;
 }
 
 @media (max-width: 768px) {
