@@ -234,6 +234,7 @@ a:hover {
   font-weight: 700;
   color: var(--ink);
   text-decoration: none;
+  padding-top: 4px;
   display: flex;
   align-items: center;
   flex-shrink: 1;
@@ -345,6 +346,18 @@ a:hover {
 @media (max-width: 768px) {
   .header__cta {
     max-width: 100px;
+    padding: 4px 8px;
+    font-size: 12px;
+    line-height: 1.1;
+  }
+}
+
+/* Extra small screens */
+@media (max-width: 480px) {
+  .header__cta {
+    max-width: 90px;
+    padding: 3px 6px;
+    font-size: 11px;
   }
 }
 
@@ -518,10 +531,18 @@ a:hover {
   }
   
   .hero__cta {
-    padding: var(--space-sm) var(--space-md);
-    font-size: var(--font-size-base);
+    padding: var(--space-xs) var(--space-sm);
+    font-size: var(--font-size-sm);
     white-space: normal;
     text-align: center;
+  }
+}
+
+/* Extra small screens */
+@media (max-width: 480px) {
+  .hero__cta {
+    padding: 6px 12px;
+    font-size: 13px;
   }
 }
 
