@@ -1,0 +1,10 @@
+﻿Contact: mailto:info@plan6ix.ca
+Contact: tel:+1-647-906-4923
+Expires: 2026-10-05T00:00:00.000Z
+Preferred-Languages: en
+Canonical: https://plan6ix.ca/.well-known/security.txt
+Policy: https://plan6ix.ca/
+Hiring: https://plan6ix.ca/contact.html
+
+# Security Contact Information for Plan6ix Buildtrade Inc
+# If you discover any security issues, please contact us immediately.

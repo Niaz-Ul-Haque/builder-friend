@@ -1,19 +1,46 @@
 # Plan6ix Buildtrade Inc - robots.txt
 # Professional renovation and construction services in Toronto, ON
+# Updated: October 5, 2025
 
+# Allow all major search engines
 User-agent: *
 Allow: /
 
-# Disallow any admin or private directories (add as needed)
-# Disallow: /admin/
-# Disallow: /private/
+# Disallow specific files and directories
+Disallow: /private/
+Disallow: /temp/
+Disallow: /*.json$
+Disallow: /assets/*.pdf$
 
-# Disallow search results and form processing pages
-Disallow: /search
-Disallow: /*?*
+# Allow CSS, JS, and images for better crawling
+Allow: /css/
+Allow: /js/
+Allow: /assets/
+
+# Specific bot rules
+User-agent: Googlebot
+Allow: /
+Crawl-delay: 0
+
+User-agent: Googlebot-Image
+Allow: /assets/
+
+User-agent: Bingbot
+Allow: /
+Crawl-delay: 1
+
+# Block bad bots
+User-agent: AhrefsBot
+Disallow: /
+
+User-agent: SemrushBot
+Disallow: /
+
+User-agent: MJ12bot
+Disallow: /
 
 # Sitemap location
 Sitemap: https://plan6ix.ca/sitemap.xml
 
-# Crawl-delay for respectful crawling
-Crawl-delay: 1
+# Host (preferred domain)
+Host: https://plan6ix.ca

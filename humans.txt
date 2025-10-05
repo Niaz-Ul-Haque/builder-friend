@@ -1,0 +1,25 @@
+﻿/* TEAM */
+Company: Plan6ix Buildtrade Inc
+Location: Scarborough, ON, Canada
+Contact: info@plan6ix.ca
+Phone: +1 (647) 906-4923
+Website: https://plan6ix.ca
+
+/* SITE */
+Last update: 2025-10-05
+Standards: HTML5, CSS3, JavaScript ES6+
+Components: Responsive Design, SEO Optimized, Accessibility
+Software: VS Code, Git
+Languages: English
+
+/* THANKS */
+Google Fonts
+WebP Image Format
+Modern Web Standards
+
+/* SERVICES */
+Interior Renovations
+Exterior Hardscaping
+Custom Cabinetry
+Flooring Installation
+Property Maintenance
